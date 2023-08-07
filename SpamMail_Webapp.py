@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 
-maildata=pd.read_csv('C:/Users/HP/Desktop/ML/Deployment Files/mail_data.csv')
+maildata=pd.read_csv('mail_data.csv')
 x=maildata['Message']
 y=maildata['Category']
 x_train,x_test,y_train,y_test=train_test_split(x,y,random_state=3,test_size=0.2)
@@ -18,7 +18,7 @@ x_train,x_test,y_train,y_test=train_test_split(x,y,random_state=3,test_size=0.2)
 feature=TfidfVectorizer(min_df=1,stop_words='english',lowercase=True)
 feature.fit_transform(x_train)
 
-loaded_model=pickle.load(open('C:/Users/HP/Desktop/ML/Deployment Files/SpamMail_model.sav','rb'))
+loaded_model=pickle.load(open('SpamMail_model.sav','rb'))
 
 def spam(input):
     #input=str(input)
